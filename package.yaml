@@ -1,0 +1,50 @@
+name:                darkWire-backend
+version:             0.1.0.0
+github:              "bra1nDump/darkWire-backend"
+license:             BSD3
+author:              "Kirill Dubovitskiy"
+maintainer:          "brainddump@ucla.com"
+copyright:           "2018 Kirill Dubovitskiy"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/bra1nDump/darkWire-backend#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- MissingH
+- happstack-server
+
+library:
+  source-dirs: src
+
+executables:
+  darkWire-backend-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - darkWire-backend
+
+tests:
+  darkWire-backend-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - darkWire-backend
